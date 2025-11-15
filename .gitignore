@@ -1,0 +1,68 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Archive/Backup Files
+archive/
+*.backup
+*.bak
+Abderraouf_Portfolio_v2.txt
+
+# Personal Notes (keep private)
+notes/
+todo.txt
+private/
+*.md
+!README.md
+
+# Kiro AI Assistant Files
+.kiro/
+
+# Environment Files
+.env
+.env.local
+
+# Build Files (if you add a build process later)
+dist/
+build/
+node_modules/
+
+# Test Files
+test-*.html
+*-test.html
+*.test.js
+
+# Large Asset Files (use Git LFS or CDN instead)
+*.psd
+*.ai
+*.sketch
+*.fig
+*.mp4
+*.mov
+*.avi
+
+# Documentation/Planning (not needed in production)
+docs/
+*.pdf
+Official Diplomas and certifications/

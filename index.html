@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abderraouf Yacine Toumi - Data-Driven Marketing & IT</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (MOVED TO BOTTOM OF BODY) -->
+    
+    <!-- Animation Libraries CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    
+    <style>
+        /* Base styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050810; /* Even darker, more premium black */
+            color: #e0e0e0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        
+        /* Gradient text for headlines */
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #a855f7, #3b82f6); /* Blue to Purple and back to Blue */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto; /* Make background wider */
+            animation: flow-gradient 4s linear infinite; /* Add animation */
+        }
+
+        /* NEW Keyframes for flowing gradient */
+        @-webkit-keyframes flow-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        @-moz-keyframes flow-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        @-o-keyframes flow-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        @keyframes flow-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Glassmorphism card effect */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6); /* Darker semi-transparent */
+            border-radius: 1rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.5); /* Highlight with blue on hover */
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Custom "Book Call" button - REMOVED
+        .btn-primary {
+            @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg;
+            @apply transition-all duration-300 ease-in-out;
+            @apply hover:from-blue-600 hover:to-purple-700 hover:shadow-xl hover:scale-105;
+        }
+        */
+
+        /* NEW Shine Button Effect */
+        .btn-shine-primary {
+            display: inline-block;
+            padding: 12px 32px;
+            color: #fff; /* Fallback */
+            background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+            background-position: 0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite linear;
+            animation-fill-mode: forwards;
+            -webkit-text-size-adjust: none;
+            font-weight: 600;
+            font-size: 1.125rem; /* 18px */
+            text-decoration: none;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif; /* Site font */
+            border: 1px solid #4b5563; /* Gray border */
+            border-radius: 0.5rem; /* 8px */
+            transition: all 0.3s ease;
+        }
+        .btn-shine-primary:hover {
+            border-color: #3b82f6; /* Blue border on hover */
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+            transform: scale(1.03); /* Add subtle grow */
+        }
+        
+        /* Smaller version for Nav */
+        .btn-shine-nav {
+            font-size: 0.875rem; /* 14px */
+            padding: 8px 20px;
+        }
+        
+        /* Full-width version for Form/Mobile */
+        .btn-shine-full {
+            display: block;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* User's Keyframes */
+        @-moz-keyframes shine {
+          0% {
+            background-position: 0;
+          }
+          60% {
+            background-position: 180px;
+          }
+          100% {
+            background-position: 180px;
+          }
+        }
+        @-webkit-keyframes shine {
+          0% {
+            background-position: 0;
+          }
+          60% {
+            background-position: 180px;
+          }
+          100% {
+            background-position: 180px;
+          }
+        }
+        @-o-keyframes shine {
+          0% {
+            background-position: 0;
+          }
+          60% {
+            background-position: 180px;
+          }
+          100% {
+            background-position: 180px;
+          }
+        }
+        @keyframes shine {
+          0% {
+            background-position: 0;
+          }
+          60% {
+            background-position: 180px;
+          }
+          100% {
+            background-position: 180px;
+          }
+        }
+
+        /* Secondary button */
+        .btn-secondary {
+            @apply bg-gray-700 bg-opacity-50 text-white font-medium py-3 px-8 rounded-lg;
+            @apply border border-gray-600;
+            @apply transition-all duration-300 ease-in-out;
+            @apply hover:bg-gray-600 hover:border-gray-500 hover:scale-105;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Modal styles */
+        .modal {
+            @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            @apply bg-gray-900 rounded-lg shadow-xl w-full max-w-3xl overflow-hidden;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+        }
+        .modal.open .modal-content {
+            transform: scale(1);
+        }
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+        .video-responsive-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Animated Input Styles */
+        .animated-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            isolation: isolate;
+        }
+        
+        .white,
+        .border,
+        .darkBorderBg,
+        .glow {
+            max-height: 70px;
+            max-width: 100%;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            overflow: hidden;
+            z-index: -1;
+            border-radius: 12px;
+            filter: blur(3px);
+        }
+        
+        .animated-input {
+            background-color: #010201;
+            border: none;
+            width: 100%;
+            height: 56px;
+            border-radius: 10px;
+            color: white;
+            padding-inline: 20px;
+            font-size: 18px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .animated-input::placeholder {
+            color: #c0b9c0;
+        }
+        
+        .animated-input:focus {
+            outline: none;
+        }
+        
+        .animated-input-wrapper:focus-within > .input-mask {
+            display: none;
+        }
+        
+        .input-mask {
+            pointer-events: none;
+            width: 100px;
+            height: 20px;
+            position: absolute;
+            background: linear-gradient(90deg, transparent, black);
+            top: 18px;
+            left: 70px;
+        }
+        
+        .pink-mask {
+            pointer-events: none;
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            background: #cf30aa;
+            top: 10px;
+            left: 5px;
+            filter: blur(20px);
+            opacity: 0.8;
+            transition: all 2s;
+        }
+        
+        .animated-input-wrapper:hover > .pink-mask {
+            opacity: 0;
+        }
+        
+        .white {
+            max-height: 63px;
+            border-radius: 10px;
+            filter: blur(2px);
+        }
+        
+        .white::before {
+            content: "";
+            z-index: -2;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(83deg);
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            filter: brightness(1.4);
+            background-image: conic-gradient(
+                rgba(0, 0, 0, 0) 0%,
+                #a099d8,
+                rgba(0, 0, 0, 0) 8%,
+                rgba(0, 0, 0, 0) 50%,
+                #dfa2da,
+                rgba(0, 0, 0, 0) 58%
+            );
+            transition: all 2s;
+        }
+        
+        .border {
+            max-height: 59px;
+            border-radius: 11px;
+            filter: blur(0.5px);
+        }
+        
+        .border::before {
+            content: "";
+            z-index: -2;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(70deg);
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            filter: brightness(1.3);
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-image: conic-gradient(
+                #1c191c,
+                #402fb5 5%,
+                #1c191c 14%,
+                #1c191c 50%,
+                #cf30aa 60%,
+                #1c191c 64%
+            );
+            transition: all 2s;
+        }
+        
+        .darkBorderBg {
+            max-height: 65px;
+        }
+        
+        .darkBorderBg::before {
+            content: "";
+            z-index: -2;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(82deg);
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-image: conic-gradient(
+                rgba(0, 0, 0, 0),
+                #18116a,
+                rgba(0, 0, 0, 0) 10%,
+                rgba(0, 0, 0, 0) 50%,
+                #6e1b60,
+                rgba(0, 0, 0, 0) 60%
+            );
+            transition: all 2s;
+        }
+        
+        .animated-input-wrapper:hover > .darkBorderBg::before {
+            transform: translate(-50%, -50%) rotate(-98deg);
+        }
+        
+        .animated-input-wrapper:hover > .glow::before {
+            transform: translate(-50%, -50%) rotate(-120deg);
+        }
+        
+        .animated-input-wrapper:hover > .white::before {
+            transform: translate(-50%, -50%) rotate(-97deg);
+        }
+        
+        .animated-input-wrapper:hover > .border::before {
+            transform: translate(-50%, -50%) rotate(-110deg);
+        }
+        
+        .animated-input-wrapper:focus-within > .darkBorderBg::before {
+            transform: translate(-50%, -50%) rotate(442deg);
+            transition: all 4s;
+        }
+        
+        .animated-input-wrapper:focus-within > .glow::before {
+            transform: translate(-50%, -50%) rotate(420deg);
+            transition: all 4s;
+        }
+        
+        .animated-input-wrapper:focus-within > .white::before {
+            transform: translate(-50%, -50%) rotate(443deg);
+            transition: all 4s;
+        }
+        
+        .animated-input-wrapper:focus-within > .border::before {
+            transform: translate(-50%, -50%) rotate(430deg);
+            transition: all 4s;
+        }
+        
+        .glow {
+            overflow: hidden;
+            filter: blur(30px);
+            opacity: 0.4;
+            max-height: 130px;
+        }
+        
+        .glow:before {
+            content: "";
+            z-index: -2;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(60deg);
+            position: absolute;
+            width: 999px;
+            height: 999px;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-image: conic-gradient(
+                #000,
+                #402fb5 5%,
+                #000 38%,
+                #000 50%,
+                #cf30aa 60%,
+                #000 87%
+            );
+            transition: all 2s;
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: translate(-50%, -50%) rotate(450deg);
+            }
+        }
+        
+        /* Loader Animation Styles */
+        .loader-card {
+            background-color: transparent;
+            padding: 0.5rem 1rem;
+            border-radius: 1.25rem;
+            display: inline-block;
+        }
+        
+        .loader {
+            color: rgb(124, 124, 124);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            box-sizing: content-box;
+            height: 40px;
+            padding: 10px 10px;
+            display: flex;
+            border-radius: 8px;
+        }
+        
+        .words {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .words::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                #050810 10%,
+                transparent 30%,
+                transparent 70%,
+                #050810 90%
+            );
+            z-index: 20;
+        }
+        
+        .word {
+            display: block;
+            height: 100%;
+            padding-left: 6px;
+            color: #956afa;
+            animation: spin_words 6s infinite;
+        }
+        
+        @keyframes spin_words {
+            10% {
+                transform: translateY(-105%);
+            }
+            20% {
+                transform: translateY(-100%);
+            }
+            30% {
+                transform: translateY(-205%);
+            }
+            40% {
+                transform: translateY(-200%);
+            }
+            50% {
+                transform: translateY(-305%);
+            }
+            60% {
+                transform: translateY(-300%);
+            }
+            70% {
+                transform: translateY(-405%);
+            }
+            80% {
+                transform: translateY(-400%);
+            }
+            90% {
+                transform: translateY(-505%);
+            }
+            100% {
+                transform: translateY(-500%);
+            }
+        }
+        
+        /* Projects Section Styles */
+        .project-card {
+            background: rgba(17, 24, 39, 0.6);
+            border-radius: 1rem;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .project-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .status-orange {
+            background: rgba(255, 107, 53, 0.2);
+            color: #FF6B35;
+            border: 1px solid #FF6B35;
+        }
+        
+        .status-blue {
+            background: rgba(74, 144, 226, 0.2);
+            color: #4A90E2;
+            border: 1px solid #4A90E2;
+        }
+        
+        .status-green {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ECC71;
+            border: 1px solid #2ECC71;
+        }
+        
+        .status-purple {
+            background: rgba(155, 89, 182, 0.2);
+            color: #9B59B6;
+            border: 1px solid #9B59B6;
+        }
+        
+        .status-red {
+            background: rgba(231, 76, 60, 0.2);
+            color: #E74C3C;
+            border: 1px solid #E74C3C;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .project-problem,
+        .project-solution {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+        
+        .project-problem strong,
+        .project-solution strong {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .project-impact {
+            margin: 1.5rem 0;
+            flex-grow: 1;
+        }
+        
+        .project-impact h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-impact ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .project-impact li {
+            color: #9ca3af;
+            padding: 0.375rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        
+        .project-impact li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .project-cta {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background: transparent;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+        
+        .project-cta:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .project-cta svg {
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-cta:hover svg {
+            transform: translateX(5px);
+        }
+        
+        @media (max-width: 768px) {
+            .tech-stack {
+                overflow-x: auto;
+                white-space: nowrap;
+                flex-wrap: nowrap;
+            }
+        }
+        
+        /* Experience Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3b82f6, #a855f7);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            padding-left: 40px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+            margin-left: 0;
+            padding-right: 40px;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: calc(50% - 30px);
+            background: rgba(17, 24, 39, 0.6);
+            border-radius: 1rem;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            border: 4px solid #050810;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            top: 30px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            top: 30px;
+        }
+        
+        .timeline-arrow {
+            position: absolute;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-arrow {
+            left: -10px;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent rgba(59, 130, 246, 0.3) transparent transparent;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-arrow {
+            right: -10px;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent rgba(59, 130, 246, 0.3);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        
+        .company-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-date {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .job-location {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .experience-description {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .experience-achievements {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .experience-achievements li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #9ca3af;
+        }
+        
+        .experience-achievements li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        
+        .current-badge {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid #22c55e;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .timeline-arrow {
+                display: none;
+            }
+        }
+        
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full z-40 top-0 left-0">
+        <nav class="container mx-auto max-w-7xl px-4 py-4 mt-4 glass-card flex justify-between items-center">
+            <!-- Logo/Name -->
+            <a href="#" class="text-2xl font-bold text-white">
+                Abderraouf<span class="text-blue-500">.</span>Tech
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#services" class="text-gray-300 hover:text-blue-400 transition duration-300">Solutions</a>
+                <a href="#credentials" class="text-gray-300 hover:text-blue-400 transition duration-300">Credentials</a>
+                <a href="#projects" class="text-gray-300 hover:text-blue-400 transition duration-300">Projects</a>
+                <a href="#experience" class="text-gray-300 hover:text-blue-400 transition duration-300">Experience</a>
+                <a href="#about" class="text-gray-300 hover:text-blue-400 transition duration-300">About</a>
+                <a href="https://www.linkedin.com/in/abderraouf-yt" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-blue-400 transition duration-300">
+                    <span id="linkedin-icon-desktop" class="w-6 h-6"></span>
+                </a>
+                <a href="#contact" class="btn-shine-primary btn-shine-nav">
+                    Book Free Call
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Open menu">
+                <span id="menu-icon" class="w-7 h-7"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card mt-2 mx-4 rounded-lg shadow-xl overflow-hidden">
+            <a href="#services" class="block px-5 py-3 text-gray-200 hover:bg-blue-900 mobile-link">Solutions</a>
+            <a href="#credentials" class="block px-5 py-3 text-gray-200 hover:bg-blue-900 mobile-link">Credentials</a>
+            <a href="#projects" class="block px-5 py-3 text-gray-200 hover:bg-blue-900 mobile-link">Projects</a>
+            <a href="#experience" class="block px-5 py-3 text-gray-200 hover:bg-blue-900 mobile-link">Experience</a>
+            <a href="#about" class="block px-5 py-3 text-gray-200 hover:bg-blue-900 mobile-link">About</a>
+            <a href="https://www.linkedin.com/in/abderraouf-yt" target="_blank" rel="noopener noreferrer" class="block px-5 py-3 text-gray-200 hover:bg-blue-900 mobile-link">LinkedIn</a>
+            <a href="#contact" class="btn-shine-primary btn-shine-full mobile-link" style="padding-top: 16px; padding-bottom: 16px;">
+                Book Free Call
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-7xl px-4 pt-40 md:pt-48">
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                Abderraouf Yacine Toumi
+            </h1>
+            <h2 class="text-3xl md:text-5xl font-bold text-gradient mb-6">
+                Data-Driven Marketing & IT Solutions
+            </h2>
+            
+            <!-- Animated Loader -->
+            <div class="loader-card mb-10">
+                <div class="loader">
+                    <p>Specializing in</p>
+                    <div class="words">
+                        <span class="word">Data Analytics</span>
+                        <span class="word">Ad Campaigns</span>
+                        <span class="word">HubSpot CRM</span>
+                        <span class="word">Pinterest Ads</span>
+                        <span class="word">IT Systems</span>
+                        <span class="word">Data Analytics</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                I help businesses <span class="text-blue-400 font-semibold">cut wasted ad spend by 40%</span> and <span class="text-purple-400 font-semibold">double qualified leads</span> through data-driven marketing and bulletproof IT systems.
+            </p>
+            <p class="text-base text-gray-400 max-w-2xl mx-auto mb-12">
+                <span class="text-green-400">✓</span> HubSpot & Pinterest Certified  
+                <span class="mx-2">•</span>
+                <span class="text-green-400">✓</span> 3+ Years Experience  
+                <span class="mx-2">•</span>
+                <span class="text-green-400">✓</span> Currently Managing Production at CIAR
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
+                <a href="#contact" class="btn-shine-primary">
+                    <span id="calendar-icon-hero" class="inline-block -mt-1 mr-2 w-5 h-5"></span>
+                    Book Your Free Strategy Call (3 Slots Left This Week)
+                </a>
+                <button id="open-video-modal" class="btn-secondary text-lg">
+                    <span id="play-icon-hero" class="inline-block -mt-1 mr-2 w-5 h-5"></span>
+                    Watch My 30s Intro
+                </button>
+            </div>
+            <p class="text-sm text-gray-500 mb-16">💎 Free 15-minute call • No obligation • Normally $150 value</p>
+            <div class="mt-16 text-center">
+                <p class="text-sm text-gray-400 mb-6">VERIFIED & CERTIFIED BY</p>
+                <div class="flex justify-center items-center gap-12 flex-wrap">
+                    <img src="assets/images/brands/Brands and LOGOS/Hubspot Brandkit/HubSpot/HubSpot_idPJcOROpd_0.svg" alt="HubSpot Academy" class="h-10 hover:scale-110 transition-transform duration-300">
+                    <img src="assets/images/brands/Brands and LOGOS/Pinterest/Pinterest/Pinterest_Logo_0.svg" alt="Pinterest Academy" class="h-10 hover:scale-110 transition-transform duration-300">
+                    <img src="assets/images/brands/Brands and LOGOS/Credly Brandkit/Credly/Credly_idgkMvskjS_1.svg" alt="Credly" class="h-10 hover:scale-110 transition-transform duration-300">
+                    <img src="assets/images/brands/Brands and LOGOS/n8n BRANDKIT/N8n.io/N8n.io_id9y5Acqtx_1.png" alt="n8n" class="h-14 hover:scale-110 transition-transform duration-300">
+                    <img src="assets/images/brands/Brands and LOGOS/Untitled design/EF SET.png" alt="EF SET" class="h-14 hover:scale-110 transition-transform duration-300">
+                    <img src="assets/images/brands/Brands and LOGOS/Untitled design/INFP.png" alt="INFP" class="h-14 hover:scale-110 transition-transform duration-300">
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions (Services) Section -->
+        <section id="services" class="py-16 mt-12">
+            <h2 class="text-4xl font-bold text-white text-center mb-16">How I Help You Win</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Solution Card 1: Data -->
+                <div class="glass-card p-8 hover:border-blue-500">
+                    <div class="p-3 bg-blue-900 rounded-lg inline-block mb-5">
+                        <span id="database-icon" class="w-7 h-7 text-blue-300"></span>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-3">Stop Wasting 40% of Your Marketing Budget</h3>
+                    <p class="text-gray-400 mb-4">
+                        Most businesses are bleeding money on campaigns that don't work. I set up HubSpot dashboards that show you exactly where every dollar goes—and which channels actually bring in customers.
+                    </p>
+                    <div class="bg-blue-900 bg-opacity-30 p-3 rounded-lg mb-4">
+                        <p class="text-blue-300 text-sm font-semibold">Real Example:</p>
+                        <p class="text-gray-300 text-sm">Identified $12K/year in wasted ad spend by analyzing conversion paths and eliminating underperforming keywords.</p>
+                    </div>
+                    <p class="text-sm text-blue-400 mt-4 font-medium">✓ HubSpot Reporting • Data Analysis • QA Testing</p>
+                </div>
+
+                <!-- Solution Card 2: Ads -->
+                <div class="glass-card p-8 hover:border-purple-500">
+                    <div class="p-3 bg-purple-900 rounded-lg inline-block mb-5">
+                        <span id="target-icon" class="w-7 h-7 text-purple-300"></span>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-3">Reach Buyers When They're Ready to Purchase</h3>
+                    <p class="text-gray-400 mb-4">
+                        85% of Pinterest users are actively planning purchases. I create laser-targeted campaigns that put your product in front of people already searching for solutions like yours.
+                    </p>
+                    <div class="bg-purple-900 bg-opacity-30 p-3 rounded-lg mb-4">
+                        <p class="text-purple-300 text-sm font-semibold">Real Example:</p>
+                        <p class="text-gray-300 text-sm">Reduced cost-per-click by 35% while increasing qualified traffic by 2.5x through audience segmentation and creative testing.</p>
+                    </div>
+                    <p class="text-sm text-purple-400 mt-4 font-medium">✓ Pinterest Media Buyer • Media Planner • Performance Optimization</p>
+                </div>
+
+                <!-- Solution Card 3: Tech -->
+                <div class="glass-card p-8 hover:border-gray-500">
+                    <div class="p-3 bg-gray-700 rounded-lg inline-block mb-5">
+                        <span id="server-icon" class="w-7 h-7 text-gray-300"></span>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-3">Fix the Tech Bottlenecks Killing Your Growth</h3>
+                    <p class="text-gray-400 mb-4">
+                        Slow websites lose 40% of visitors. Broken tracking means blind decisions. I audit your tech stack, fix critical issues, and automate workflows so your team can focus on growth.
+                    </p>
+                    <div class="bg-gray-700 bg-opacity-30 p-3 rounded-lg mb-4">
+                        <p class="text-gray-300 text-sm font-semibold">Real Example:</p>
+                        <p class="text-gray-300 text-sm">Automated data validation processes at CIAR, reducing manual errors by 90% and saving 15 hours/week of team time.</p>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-4 font-medium">✓ IT System Management • QA Testing • Process Automation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Verified Credentials Section -->
+        <section id="credentials" class="py-16 bg-gradient-to-b from-transparent via-gray-900 to-transparent">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Verified Credentials & Certifications</h2>
+                <p class="text-gray-400 text-lg mb-6">Industry-recognized certifications proving expertise and commitment to excellence</p>
+                <a href="https://www.credly.com/users/abderraouf-yacine-toumi.f0d575d3" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-300">
+                    <img src="assets/images/brands/Brands and LOGOS/Credly Brandkit/Credly/Credly_idgkMvskjS_1.svg" alt="Credly" class="h-5">
+                    View All Credentials on Credly
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+                <!-- HubSpot Reporting -->
+                <div class="glass-card p-8 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300">
+                    <div class="relative mb-6">
+                        <img src="https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/d2205107e84d4f37a1fdea1f0eef246c.png" alt="HubSpot Reporting Badge" class="h-40 w-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">HubSpot Reporting Certified</h3>
+                    <p class="text-gray-400 text-sm mb-1">HubSpot Academy</p>
+                    <p class="text-gray-500 text-xs mb-4">Valid until Nov 2026</p>
+                    <a href="https://app-eu1.hubspot.com/academy/achievements/h6wjcw52/en/1/abderraouf-yacine-toumi/hubspot-reporting" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-300">
+                        Verify Certificate
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- HubSpot Email Marketing -->
+                <div class="glass-card p-8 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300">
+                    <div class="relative mb-6">
+                        <img src="https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/564b0c8a1f1546ae82a630098a3accaf.png" alt="HubSpot Email Marketing Badge" class="h-40 w-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Email Marketing Certified</h3>
+                    <p class="text-gray-400 text-sm mb-1">HubSpot Academy</p>
+                    <p class="text-gray-500 text-xs mb-4">Valid until Nov 2027</p>
+                    <a href="https://app-eu1.hubspot.com/academy/achievements/63d1tsbq/en/1/abderraouf-yacine-toumi/email-marketing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-300">
+                        Verify Certificate
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Pinterest Media Buyer -->
+                <div class="glass-card p-8 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300">
+                    <div class="relative mb-6">
+                        <img src="assets/images/certifications/Official Diplomas and certifications/Pinterest Cridentials/2.svg" alt="Pinterest Media Buyer Badge" class="h-40 w-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute -top-2 -right-2">
+                            <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg">90%</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Pinterest Media Buyer</h3>
+                    <p class="text-gray-400 text-sm mb-1">Pinterest Academy</p>
+                    <p class="text-gray-500 text-xs mb-4">Valid until Oct 2027</p>
+                    <a href="https://www.pinterestacademy.com/student/award/x7dxJuuGJHWRnihdhBPk3Yse" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-300">
+                        Verify Certificate
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Pinterest Media Planner -->
+                <div class="glass-card p-8 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300">
+                    <div class="relative mb-6">
+                        <img src="assets/images/certifications/Official Diplomas and certifications/Pinterest Cridentials/1.svg" alt="Pinterest Media Planner Badge" class="h-40 w-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute -top-2 -right-2">
+                            <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg">87%</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Pinterest Media Planner</h3>
+                    <p class="text-gray-400 text-sm mb-1">Pinterest Academy</p>
+                    <p class="text-gray-500 text-xs mb-4">Valid until Jul 2027</p>
+                    <a href="https://www.pinterestacademy.com/student/award/m4C8Fhafjnsv96Hxz5RV3T3n" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-300">
+                        Verify Certificate
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Pinterest Performance Essentials -->
+                <div class="glass-card p-8 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300">
+                    <div class="relative mb-6">
+                        <img src="assets/images/certifications/Official Diplomas and certifications/Pinterest Cridentials/3.svg" alt="Pinterest Performance Essentials Badge" class="h-40 w-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Pinterest Performance Essentials</h3>
+                    <p class="text-gray-400 text-sm mb-1">Pinterest Academy</p>
+                    <p class="text-gray-500 text-xs mb-4">Valid until Oct 2027</p>
+                    <a href="https://www.pinterestacademy.com/student/award/GhzWiSyiRskuDKFbxqREKeQh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-300">
+                        Verify Certificate
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Software Testing Diploma -->
+                <div class="glass-card p-8 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300">
+                    <div class="relative mb-6">
+                        <img src="assets/images/brands/Brands and LOGOS/Untitled design/MTF.png" alt="MTF Institute" class="h-40 w-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Software Testing & QA</h3>
+                    <p class="text-gray-400 text-sm mb-1">Udemy / MTF Institute</p>
+                    <p class="text-gray-500 text-xs mb-4">Completed Jul 2025</p>
+                    <a href="https://www.udemy.com/certificate/UC-fc1af3fb-0e71-414f-b70e-b17817cd71ce/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-300">
+                        Verify Certificate
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- TS Informatique -->
+                <div class="glass-card p-8 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300">
+                    <div class="relative mb-6">
+                        <img src="assets/images/brands/Brands and LOGOS/Untitled design/INFP.png" alt="TS Informatique Diploma" class="h-40 w-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute -top-2 -right-2">
+                            <span class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">MENTION BIEN</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Higher Technician Diploma</h3>
+                    <p class="text-gray-400 text-sm mb-1">Computer Science & Management (Bac+3)</p>
+                    <p class="text-gray-500 text-xs mb-4">INSFP Algeria • 2020-2023</p>
+                </div>
+                
+                <!-- EF SET English Certificate -->
+                <div class="glass-card p-8 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300">
+                    <div class="relative mb-6">
+                        <img src="assets/images/brands/Brands and LOGOS/Untitled design/6.png" alt="EF SET English Score" class="h-40 w-40 object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">English Certificate C2 Proficient</h3>
+                    <p class="text-gray-400 text-sm mb-1">EF SET (EF Standard English Test)</p>
+                    <p class="text-gray-500 text-xs mb-4">CEFR Level: C2</p>
+                    <a href="https://cert.efset.org/iD23ur" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors duration-300">
+                        Verify Certificate
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Current Projects Section -->
+        <section id="projects" class="py-16">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Current Projects & Ventures</h2>
+                <p class="text-gray-400 text-lg">Building the future of Algerian business automation and AI-powered solutions</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                
+                <!-- Project 1: E-constat -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="status-badge status-orange">Active Development</span>
+                        <h3 class="project-title">E-constat - AI-Powered Accident Documentation</h3>
+                    </div>
+                    
+                    <div class="project-problem">
+                        <strong>Problem:</strong> Algerian drivers waste 45+ minutes on manual paperwork after accidents, leading to delayed insurance claims and legal disputes.
+                    </div>
+                    
+                    <div class="project-solution">
+                        <strong>Solution:</strong> Mobile application that automates the constat amiable process using AI, reducing documentation time by 90% while eliminating human error.
+                    </div>
+                    
+                    <div class="project-impact">
+                        <h4>Impact & Results:</h4>
+                        <ul>
+                            <li>90% time reduction (45 min → 5 min)</li>
+                            <li>Eliminates 100% of form completion errors</li>
+                            <li>Targets 2M+ Algerian drivers annually</li>
+                            <li>Streamlines insurance processing by 3-5 days</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">Mobile Dev</span>
+                        <span class="tech-tag">OCR</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    
+                    <button class="project-cta">
+                        Launch Q1 2026 - Join Waitlist
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+                
+                <!-- Project 2: DZ Domain Intelligence Scraper -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="status-badge status-blue">Beta Testing</span>
+                        <h3 class="project-title">DZ Domain Intelligence Scraper - Business Data API</h3>
+                    </div>
+                    
+                    <div class="project-problem">
+                        <strong>Problem:</strong> Algerian businesses lack structured, accessible market data for lead generation, competitive analysis, and research—forcing 40+ hours of manual work.
+                    </div>
+                    
+                    <div class="project-solution">
+                        <strong>Solution:</strong> Automated web scraping system that collects, structures, and delivers real-time business intelligence from Algerian registries via API.
+                    </div>
+                    
+                    <div class="project-impact">
+                        <h4>Impact & Results:</h4>
+                        <ul>
+                            <li>15,000+ business records indexed</li>
+                            <li>Replaces 40+ hours of manual research</li>
+                            <li>95% accuracy in entity extraction</li>
+                            <li>API-ready B2B data delivery</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Web Scraping</span>
+                        <span class="tech-tag">API Dev</span>
+                        <span class="tech-tag">Data Engineering</span>
+                        <span class="tech-tag">n8n</span>
+                    </div>
+                    
+                    <button class="project-cta">
+                        Request API Access
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+                
+                <!-- Project 3: Findiacs -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="status-badge status-green">Market Launch</span>
+                        <h3 class="project-title">Findiacs - Multi-SaaS Brand Ecosystem</h3>
+                    </div>
+                    
+                    <div class="project-problem">
+                        <strong>Problem:</strong> Algerian SMEs struggle with fragmented, expensive, or inaccessible business software for compliance, administration, and operations.
+                    </div>
+                    
+                    <div class="project-solution">
+                        <strong>Solution:</strong> Umbrella brand offering micro-SaaS tools tailored to Algerian needs—white-labeled, affordable, and localized for registry automation, document generation, and compliance.
+                    </div>
+                    
+                    <div class="project-impact">
+                        <h4>Impact & Results:</h4>
+                        <ul>
+                            <li>Portfolio of 5+ mini-applications</li>
+                            <li>Modular architecture for rapid iteration</li>
+                            <li>Solves niche administrative pain points</li>
+                            <li>Positioned for scalable B2B/B2G sales</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Full-Stack JS</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">n8n</span>
+                        <span class="tech-tag">Multi-tenant</span>
+                    </div>
+                    
+                    <button class="project-cta">
+                        Explore Solutions
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+                
+                <!-- Project 4: AI Development Services -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="status-badge status-purple">Revenue Active</span>
+                        <h3 class="project-title">Freelance AI Development & Consulting</h3>
+                    </div>
+                    
+                    <div class="project-problem">
+                        <strong>Problem:</strong> Businesses worldwide need custom AI solutions, prompt engineering, and automation but lack specialized in-house expertise.
+                    </div>
+                    
+                    <div class="project-solution">
+                        <strong>Solution:</strong> Boutique AI consulting specializing in advanced prompt engineering, multi-agent orchestration, LLM optimization, and business process automation.
+                    </div>
+                    
+                    <div class="project-impact">
+                        <h4>Impact & Results:</h4>
+                        <ul>
+                            <li>4.9/5 average client rating</li>
+                            <li>100% project delivery success rate</li>
+                            <li>45% repeat client rate</li>
+                            <li>Expertise in GPT-4, Claude, Gemini Pro</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">Claude</span>
+                        <span class="tech-tag">OpenRouter</span>
+                        <span class="tech-tag">n8n</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    
+                    <button class="project-cta">
+                        Book Consultation
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+                
+                <!-- Project 5: Open-Source Security -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="status-badge status-red">Contribution Merged</span>
+                        <h3 class="project-title">Open-Source Security - bbot Project</h3>
+                    </div>
+                    
+                    <div class="project-problem">
+                        <strong>Problem:</strong> Critical security vulnerabilities in widely-used reconnaissance tool (8,500+ users) threatened cybersecurity professionals globally.
+                    </div>
+                    
+                    <div class="project-solution">
+                        <strong>Solution:</strong> Identified, documented, and contributed fixes to bbot GitHub repository, ensuring tool stability and preventing potential security incidents.
+                    </div>
+                    
+                    <div class="project-impact">
+                        <h4>Impact & Results:</h4>
+                        <ul>
+                            <li>Protected 8,500+ active tool users</li>
+                            <li>Enhanced tool stability through testing</li>
+                            <li>Demonstrated advanced debugging skills</li>
+                            <li>Active open-source community engagement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Kali Linux</span>
+                        <span class="tech-tag">Security Testing</span>
+                        <span class="tech-tag">GitHub</span>
+                    </div>
+                    
+                    <button class="project-cta">
+                        View Contribution
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-16">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-2">
+                    <!-- TODO: Replace this placeholder with your AI-generated professional headshot from Imagen -->
+                    <img src="https://placehold.co/500x500/1e293b/94a3b8?text=A.Y.T.&font=inter" 
+                         alt="Abderraouf Yacine Toumi, professional headshot"
+                         class="w-full h-auto rounded-xl shadow-xl border-4 border-gray-800">
+                </div>
+                <div class="md:col-span-3">
+                    <h2 class="text-4xl font-bold text-white mb-6">From Core IT to Client Conversions</h2>
+                    <p class="text-gray-300 text-lg mb-4">
+                        Hello! I'm Abderraouf. My journey began in core technology with a formal diploma in Management Information Systems. I love building and fixing the "engine" of a business.
+                    </p>
+                    <p class="text-gray-300 text-lg mb-4">
+                        But I quickly realized that the most powerful engine is useless without a map. That's why I became obsessed with data-driven marketing. I earned certifications from HubSpot and Pinterest to learn how to use data to *find* the destination.
+                    </p>
+                    <p class="text-gray-300 text-lg mb-4">
+                        Today, I offer a rare blend of skills: I can fix your technical foundation *and* build your marketing strategy. Currently, I'm applying these skills as a <span class="text-blue-400 font-medium">Production Manager at CIAR</span>, optimizing processes and managing data flow.
+                    </p>
+                    <a href="https://www.linkedin.com/in/abderraouf-yt" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-blue-500 hover:text-blue-400 transition duration-300 flex items-center">
+                        Connect with me on LinkedIn
+                        <span id="arrow-right-icon" class="w-5 h-5 ml-2"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-white text-center mb-4">Common Questions</h2>
+                <p class="text-gray-400 text-center mb-16">Everything you need to know before we talk</p>
+                
+                <div class="space-y-6">
+                    <!-- FAQ 1 -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">💰 How much do your services cost?</h3>
+                        <p class="text-gray-400">It depends on your needs. Most projects range from $1,500-$5,000 for one-time setups (HubSpot dashboards, Pinterest campaign launches) or $800-$2,000/month for ongoing management. The free strategy call helps us figure out exactly what you need.</p>
+                    </div>
+                    
+                    <!-- FAQ 2 -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">⏱️ How quickly will I see results?</h3>
+                        <p class="text-gray-400">Quick wins (like fixing tracking or identifying wasted spend) happen in week 1. Campaign optimization shows improvement in 2-4 weeks. Full transformation (like the case study above) takes 3-6 months. I focus on fast, measurable wins first.</p>
+                    </div>
+                    
+                    <!-- FAQ 3 -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">🤝 Do you require long-term contracts?</h3>
+                        <p class="text-gray-400">No. I work month-to-month for ongoing services. You can pause or stop anytime. For project-based work, we agree on deliverables upfront. I earn your business every month by delivering results.</p>
+                    </div>
+                    
+                    <!-- FAQ 4 -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">🎯 What types of businesses do you work with?</h3>
+                        <p class="text-gray-400">I specialize in B2B service businesses and e-commerce brands spending $3K-$20K/month on marketing. If you're frustrated with unclear ROI, wasted ad spend, or tech issues slowing you down, we're a good fit.</p>
+                    </div>
+                    
+                    <!-- FAQ 5 -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">📊 What if I don't have HubSpot or Pinterest ads yet?</h3>
+                        <p class="text-gray-400">Perfect! I can help you set everything up from scratch. I'll recommend the right tools for your budget and goals, handle the technical setup, and train your team. Starting fresh is often easier than fixing a messy system.</p>
+                    </div>
+                    
+                    <!-- FAQ 6 -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">🔒 What's included in the free strategy call?</h3>
+                        <p class="text-gray-400">We'll spend 15 minutes reviewing your current marketing setup, identifying your biggest bottleneck, and outlining a clear action plan. No sales pitch—just honest advice. Even if we don't work together, you'll leave with actionable insights.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact / Conversion Section -->
+        <section id="contact" class="py-16">
+            <div class="glass-card p-10 md:p-16 text-center max-w-4xl mx-auto border-2 border-blue-600 shadow-2xl">
+                <div class="inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    ⚡ Only 3 Slots Available This Week
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Stop Wasting Money. Start Growing.</h2>
+                <p class="text-lg text-gray-300 mb-4">
+                    Book your <span class="text-blue-400 font-bold">FREE 15-minute strategy call</span> and discover:
+                </p>
+                <ul class="text-left max-w-2xl mx-auto mb-8 space-y-2 text-gray-300">
+                    <li>✓ Where you're losing money in your current marketing</li>
+                    <li>✓ The #1 quick win you can implement this week</li>
+                    <li>✓ A clear roadmap to double your qualified leads</li>
+                </ul>
+                <p class="text-sm text-gray-400 mb-10">
+                    💎 Normally $150 value • 100% free • No sales pitch • Just actionable advice
+                </p>
+                
+                <form id="contact-form" class="max-w-lg mx-auto">
+                    <!-- Animated Name Input -->
+                    <div class="animated-input-wrapper">
+                        <div class="glow"></div>
+                        <div class="darkBorderBg"></div>
+                        <div class="darkBorderBg"></div>
+                        <div class="darkBorderBg"></div>
+                        <div class="white"></div>
+                        <div class="border"></div>
+                        <label for="name" class="sr-only">Your Name</label>
+                        <input type="text" id="name" name="name" class="animated-input" placeholder="Your Name" required>
+                        <div class="input-mask"></div>
+                        <div class="pink-mask"></div>
+                    </div>
+                    
+                    <!-- Animated Email Input -->
+                    <div class="animated-input-wrapper">
+                        <div class="glow"></div>
+                        <div class="darkBorderBg"></div>
+                        <div class="darkBorderBg"></div>
+                        <div class="darkBorderBg"></div>
+                        <div class="white"></div>
+                        <div class="border"></div>
+                        <label for="email" class="sr-only">Your Email</label>
+                        <input type="email" id="email" name="email" class="animated-input" placeholder="Your Email" required>
+                        <div class="input-mask"></div>
+                        <div class="pink-mask"></div>
+                    </div>
+                    
+                    <div class="text-center relative z-10 mb-4">
+                        <button type="submit" class="btn-shine-primary btn-shine-full text-lg py-4 mb-4">
+                            <span id="calendar-icon-form" class="inline-block -mt-1 mr-2 w-5 h-5"></span>
+                            Claim Your Free Strategy Call Now
+                        </button>
+                        <p class="text-gray-400 text-sm mb-3">Or reach me directly on WhatsApp</p>
+                        <a href="https://wa.me/213697930641" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                    <p class="text-xs text-gray-500 text-center mt-4">🔒 Your information is 100% secure. I'll never spam you.</p>
+                    <div id="form-message" class="text-center mt-6 text-green-400"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto max-w-7xl px-4 py-12 text-center">
+            <div class="flex justify-center items-center gap-8 mb-6">
+                <a href="https://www.linkedin.com/in/abderraouf-yt" target="_blank" rel="noopener noreferrer" class="group" title="LinkedIn Profile">
+                    <img src="assets/images/brands/Brands and LOGOS/LinkedIn Brandkit/LinkedIn/LinkedIn_Symbol_9.svg" alt="LinkedIn" class="h-8 w-8 group-hover:scale-110 transition-transform duration-300">
+                </a>
+                <a href="https://github.com/Abderraouf-yt" target="_blank" rel="noopener noreferrer" class="group" title="GitHub Profile">
+                    <img src="assets/images/brands/Brands and LOGOS/Github Brandkit/GitHub/GitHub_Symbol_2.svg" alt="GitHub" class="h-8 w-8 group-hover:scale-110 transition-transform duration-300">
+                </a>
+                <a href="https://www.credly.com/users/abderraouf-yacine-toumi.f0d575d3" target="_blank" rel="noopener noreferrer" class="group" title="Credly Profile">
+                    <img src="assets/images/brands/Brands and LOGOS/Credly Brandkit/Credly/Credly_idgkMvskjS_1.svg" alt="Credly" class="h-8 w-8 group-hover:scale-110 transition-transform duration-300">
+                </a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; <span id="current-year"></span> Abderraouf Yacine Toumi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center p-4 border-b border-gray-700">
+                <h3 class="text-lg font-semibold text-white">My 30-Second Introduction</h3>
+                <button id="close-video-modal" class="text-gray-400 hover:text-white" aria-label="Close modal">
+                    <span id="close-icon" class="w-6 h-6"></span>
+                </button>
+            </div>
+            <div class="p-4">
+                <div class="video-responsive bg-black rounded-lg overflow-hidden">
+                    <!-- 
+                      ************************************************************
+                      * ACTION REQUIRED: Replace this placeholder with your Veo 3.1 video.
+                      * You can upload your generated video to YouTube or Vimeo
+                      * and paste the 'embed' URL in the `src` attribute below.
+                      ************************************************************
+                    -->
+                    <iframe class="video-responsive-item" 
+                            src="" 
+                            title="Placeholder Video" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                    <!-- 
+                      This placeholder (https://placehold.co/1280x720/050810/ffffff?text=Veo+3.1+Intro+Video&font=inter) 
+                      can be used if you don't have a video host. Just replace the <iframe> above
+                      with this <img> tag.
+                      <img src="https://placehold.co/1280x720/050810/ffffff?text=Veo+3.1+Intro+Video&font=inter" alt="Veo 3.1 Intro Video Placeholder">
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide.min.js"></script>
+    
+    <!-- Animation Libraries JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- JavaScript -->
+    <script>
+        // Wait for the DOM to be fully loaded before running scripts
+        document.addEventListener('DOMContentLoaded', (event) => {
+            
+            // Lucide Icons replacement
+            lucide.createIcons({
+                icons: {
+                    'Linkedin': { 'path': 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z', 'circle': {'cx': 4, 'cy': 4, 'r': 2} },
+                    'Menu': { 'path': 'M3 12h18M3 6h18M3 18h18' },
+                    'X': { 'path': 'M18 6L6 18M6 6l12 12' },
+                    'Calendar': { 'rect': {'x': 3, 'y': 4, 'width': 18, 'height': 18, 'rx': 2, 'ry': 2}, 'line': {'x1': 16, 'y1': 2, 'x2': 16, 'y2': 6}, 'line': {'x1': 8, 'y1': 2, 'x2': 8, 'y2': 6}, 'line': {'x1': 3, 'y1': 10, 'x2': 21, 'y2': 10} },
+                    'PlayCircle': { 'circle': {'cx': 12, 'cy': 12, 'r': 10}, 'polygon': {'points': '10 8 16 12 10 16 10 8'} },
+                    'Database': { 'ellipse': {'cx': 12, 'cy': 5, 'rx': 9, 'ry': 3}, 'path': 'M21 12c0 1.66-4 3-9 3s-9-1.34-9-3', 'path': 'M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5' },
+                    'Target': { 'circle': {'cx': 12, 'cy': 12, 'r': 10}, 'circle': {'cx': 12, 'cy': 12, 'r': 6}, 'circle': {'cx': 12, 'cy': 12, 'r': 2} },
+                    'Server': { 'rect': {'x': 2, 'y': 2, 'width': 20, 'height': 8, 'rx': 2, 'ry': 2}, 'rect': {'x': 2, 'y': 14, 'width': 20, 'height': 8, 'rx': 2, 'ry': 2}, 'line': {'x1': 6, 'y1': 6, 'x2': 6.01, 'y2': 6}, 'line': {'x1': 6, 'y1': 18, 'x2': 6.01, 'y2': 18} },
+                    'ArrowRight': { 'path': 'M5 12h14M12 5l7 7-7 7' },
+                    'Award': { 'circle': {'cx': 12, 'cy': 8, 'r': 7}, 'polyline': {'points': '8.21 13.89 7 23 12 20 17 23 15.79 13.88'} }
+                },
+                // Map icon names to span IDs
+                element: document.body,
+                attrs: {
+                    'id': (name) => {
+                        const map = {
+                            'Linkedin': ['linkedin-icon-desktop', 'linkedin-icon-footer'],
+                            'Menu': ['menu-icon'],
+                            'Calendar': ['calendar-icon-hero', 'calendar-icon-form'],
+                            'PlayCircle': ['play-icon-hero'],
+                            'Database': ['database-icon'],
+                            'Target': ['target-icon'],
+                            'Server': ['server-icon'],
+                            'ArrowRight': ['arrow-right-icon'],
+                            'X': ['close-icon'],
+                            'Award': ['award-icon']
+                        };
+                        for (const key in map) {
+                            if (name === key && map[key].length > 0) {
+                                return map[key].shift(); // Assign and remove from list
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                mobileMenu.classList.toggle('hidden');
+                
+                // Replace menu icon with X icon and vice versa
+                if (isMenuOpen) {
+                    lucide.createIcons({
+                        icons: { 'X': { 'path': 'M18 6L6 18M6 6l12 12' } },
+                        element: menuIcon,
+                        attrs: { 'id': 'menu-icon', 'class': 'w-7 h-7' }
+                    });
+                } else {
+                    lucide.createIcons({
+                        icons: { 'Menu': { 'path': 'M3 12h18M3 6h18M3 18h18' } },
+                        element: menuIcon,
+                        attrs: { 'id': 'menu-icon', 'class': 'w-7 h-7' }
+                    });
+                }
+            }
+            
+            menuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', () => {
+                if (isMenuOpen) toggleMenu();
+            }));
+
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Contact Form Handler
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // This is a placeholder for a real submission.
+                // In a real app, you'd send this to a backend or a service like Formspree.
+                formMessage.textContent = "Thank you! I'll be in touch soon. (This is a demo)";
+                formMessage.classList.remove('text-red-400');
+                formMessage.classList.add('text-green-400');
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    formMessage.textContent = "";
+                }, 5000);
+            });
+
+            // Video Modal Handler
+            const videoModal = document.getElementById('video-modal');
+            const openModalBtn = document.getElementById('open-video-modal');
+            const closeModalBtn = document.getElementById('close-video-modal');
+            const videoIframe = videoModal.querySelector('iframe');
+            const originalVideoSrc = videoIframe.src;
+
+            function openModal() {
+                videoModal.classList.add('open');
+                // Append autoplay to the src
+                videoIframe.src = originalVideoSrc.includes('?') ? originalVideoSrc + '&autoplay=1' : originalVideoSrc + '?autoplay=1';
+            }
+
+            function closeModal() {
+                videoModal.classList.remove('open');
+                // Stop the video by resetting the src
+                videoIframe.src = originalVideoSrc;
+            }
+
+            openModalBtn.addEventListener('click', openModal);
+            closeModalBtn.addEventListener('click', closeModal);
+            // Close modal if user clicks outside the content
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    closeModal();
+                }
+            });
+
+        }); // Close DOMContentLoaded listener
+    </script>
+</body>
+</html>
