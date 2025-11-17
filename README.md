@@ -42,13 +42,6 @@ portfolio/
 │   ├── social-links.txt    # Social media links
 │   ├── research/           # Research and references
 │   └── design-references/  # UI component references
-├── .kiro/
-│   └── steering/           # AI assistant guidelines
-│       ├── product.md
-│       ├── tech.md
-│       ├── structure.md
-│       ├── conversion-optimization.md
-│       └── progress-log.md
 └── archive/                # Old test files and backups
 ```
 
